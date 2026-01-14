@@ -11,7 +11,7 @@ export default function App() {
           <h4>Outlet</h4>
           <Outlet />
         </div>
-        <Footer />>
+        <Footer />
       </main>
     </div>
   );
