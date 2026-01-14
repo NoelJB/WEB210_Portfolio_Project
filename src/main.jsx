@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
+import Catalog from "./pages/Catalog.jsx";
 
 import "./index.css";
 
@@ -10,15 +13,18 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { index: true, element: <div>Child Content</div> },
-      { path: "about", element: <div>About Me</div> },
-      { path: "catalog", element: <div>Catalog Goes HERE!</div> },
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "catalog", element: <Catalog /> },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <div style={{ border: "2px solid red", padding: "10px" }}>
+      <h2>Root Element</h2>
+      <RouterProvider router={router} />
+    </div>
   </React.StrictMode>
 );
