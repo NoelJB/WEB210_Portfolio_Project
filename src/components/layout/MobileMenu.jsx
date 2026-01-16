@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../ui/Button.jsx";
 import { FaTimes } from "react-icons/fa";
+import SimpleMenu from "../ui/SimpleMenu.jsx";
 
 export default function MobileMenu({ open, onClose, links }) {
   const panelRef = useRef(null);
@@ -76,25 +77,20 @@ export default function MobileMenu({ open, onClose, links }) {
           />
         </div>
 
-        <nav className="p-4">
-          <ul className="space-y-2" role="list">
-            {links.map((l) => (
-              <li key={l.to}>
-                <NavLink
-                  to={l.to}
-                  onClick={onClose}
-                  className={({ isActive }) =>
-                    [
-                      "block rounded px-3 py-2 text-sm transition",
-                      isActive ? "bg-white/10 text-white" : "text-white/80 hover:bg-white/10 hover:text-white",
-                    ].join(" ")
-                  }
-                >
-                  {l.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+        <nav>
+          <SimpleMenu
+            links={links}
+            navClassName={"p-4"}
+            ulCLassName={"space-y-2"}
+            role={"list"}
+            onClick={onClose}
+            linkClassName={({ isActive }) =>
+              [
+                "block rounded px-3 py-2 text-sm transition",
+                isActive ? "bg-white/10 text-white" : "text-white/80 hover:bg-white/10 hover:text-white",
+              ].join(" ")
+            }
+          />
 
           {/* Contact CTA */}
           <Button as="a" href="/contact" onClick={onClose} variant="primary" className="mt-4 w-full justify-center">

@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom";
+import SimpleMenu from "../components/ui/SimpleMenu";
 
 export default function Catalog() {
-  const links = [
+  const menu_items = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About Us" },
   ];
@@ -11,11 +11,7 @@ export default function Catalog() {
       <div>Catalog Goes HERE!</div>
       <nav>
         <ul>
-          {links.map((link) => (
-            <li>
-              <NavLink to={link.to}>{link.label}</NavLink>
-            </li>
-          ))}
+          <SimpleMenu links={menu_items} />
         </ul>
       </nav>
     </>

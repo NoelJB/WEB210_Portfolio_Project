@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Container from "../ui/Container.jsx";
 import Button from "../ui/Button.jsx";
-import { NavLink } from "react-router-dom";
 import MobileMenu from "./MobileMenu.jsx";
+import SimpleMenu from "../ui/SimpleMenu.jsx";
 
 const links = [
   { to: "/about", label: "About Me" },
@@ -35,20 +35,13 @@ export default function Navbar() {
           </div>
 
           {/* Center: nav (flex-none, stays centered) */}
-          <nav className="flex justify-center flex-none text-center">
-            <ul className="hidden md:flex items-center gap-6 body-small">
-              {links.map((link) => (
-                <li key={link.to}>
-                  <NavLink
-                    to={link.to}
-                    className={({ isActive }) => `transition hover:text-white ${isActive ? "text-white" : ""}`}
-                  >
-                    {link.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <SimpleMenu
+            links={links}
+            ariaLabel={"Header navigation"}
+            ulCLassName="hidden md:flex items-center gap-6 body-small"
+            navClassName={"flex justify-center flex-none text-center"}
+            linkClassName={({ isActive }) => `transition hover:text-white ${isActive ? "text-white" : ""}`}
+          />
 
           {/* Right: CTA / mobile button (flex-1) */}
           <div className="flex-1 flex justify-end">

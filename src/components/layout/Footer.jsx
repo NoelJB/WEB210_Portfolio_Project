@@ -1,5 +1,5 @@
 import Container from "../ui/Container.jsx";
-import { NavLink } from "react-router-dom";
+import SimpleMenu from "../ui/SimpleMenu.jsx";
 
 export default function Footer() {
   const links = [
@@ -23,20 +23,13 @@ export default function Footer() {
           </div>
 
           {/* Center: Navigation */}
-          <nav className="flex-none" aria-label="Footer navigation">
-            <ul className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-sm">
-              {links.map((link) => (
-                <li key={link.to}>
-                  <NavLink
-                    to={link.to}
-                    className={({ isActive }) => `transition hover:text-white ${isActive ? "text-white" : ""}`}
-                  >
-                    {link.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <SimpleMenu
+            links={links}
+            ariaLabel={"Footer navigation"}
+            navClassName={"flex-none"}
+            ulCLassName={"flex flex-col md:flex-row items-center gap-4 md:gap-6 text-sm"}
+            linkClassName={({ isActive }) => `transition hover:text-white ${isActive ? "text-white" : ""}`}
+          />
         </div>
         {/* Copyright line - centered */}
         <div className="mt-6 pt-6 text-center">
