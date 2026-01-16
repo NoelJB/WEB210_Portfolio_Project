@@ -6,8 +6,7 @@ export default function Footer() {
     { to: "/", label: "Home" },
     { to: "/about", label: "About Me" },
     //{ to: "/portfolio", label: "Portfolio" },
-    // { to: "/resume", label: "Resume" },
-    { to: "/catalog", label: "Catalog" },
+    { to: "/resume", label: "Resume" },
   ];
 
   return (

@@ -6,7 +6,7 @@ import SimpleMenu from "../ui/SimpleMenu.jsx";
 
 const links = [
   { to: "/about", label: "About Me" },
-  { to: "/catalog", label: "Catalog" },
+  { to: "/resume", label: "Resume" },
   { to: "/", label: "Home" },
 ];
 
