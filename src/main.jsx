@@ -7,6 +7,7 @@ import About from "./pages/About.jsx";
 import Resume from "./pages/Resume.jsx";
 
 import "./index.css";
+import TableDemo from "./pages/table-demo.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,13 +17,14 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "about", element: <About /> },
       { path: "resume", element: <Resume /> },
+      { path: "table", element: <TableDemo /> },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <div style={{ border: "2px solid red", padding: "10px" }}>
+    <div style={{ border: "2px solid red" }}>
       <h2>Root Element</h2>
       <RouterProvider router={router} />
     </div>

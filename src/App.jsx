@@ -4,10 +4,10 @@ import Footer from "./components/layout/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-dvh flex flex-col" style={{ border: "2px solid green", padding: "10px" }}>
+    <div className="min-h-dvh flex flex-col" style={{ border: "2px solid green" }}>
       <main id="main-content" className="flex-1">
         <Navbar />
-        <div style={{ border: "2px solid blue", padding: "10px" }}>
+        <div style={{ border: "2px solid blue" }}>
           <h4>Outlet</h4>
           <Outlet />
         </div>
