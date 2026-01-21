@@ -1,3 +1,4 @@
+import Container from "../components/ui/Container";
 import MyResume from "../data/MyResume";
 
 export default function Resume() {
@@ -7,8 +8,8 @@ export default function Resume() {
     <>
       <div>Resume for {resume.name}</div>
       <hr />
-      <form>
-        <table padding="10">
+      <Container>
+        <table width="100%">
           <thead>
             <tr>
               <th>Field</th>
@@ -32,9 +33,59 @@ export default function Resume() {
                 <input id="email" type="email" value={resume.email} readOnly />
               </td>
             </tr>
+            <tr>
+              <td>
+                <label htmlFor="phone">Phone Number</label>
+              </td>
+              <td>
+                <input id="phone" type="tel" value={resume.phone} readOnly />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="linkedin">Linked-In</label>
+              </td>
+              <td>
+                <input id="linkedin" type="url" value={resume.linkedin} readOnly />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="summary">Summary</label>
+              </td>
+              <td>
+                <input id="summary" type="text" value={resume.summary} readOnly />
+              </td>
+            </tr>
           </tbody>
         </table>
-      </form>
+        <div>
+          Skills:
+          <Container>
+            <ul>
+              {resume.skills.map((skill) => (
+                <li key={skill}>{skill}</li>
+              ))}
+            </ul>
+          </Container>
+        </div>
+        <div>
+          Education:
+          <Container>
+            <ul>
+              {resume.education.map((school) => (
+                <li key={school.school}>
+                  <p>School: {school.school}</p>
+                  <p>Start: {school.start}</p>
+                  <p>End: {school.end}</p>
+                  <p>Degree: {school.degree || "N/A"}</p>
+                  <hr />
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </div>
+      </Container>
     </>
   );
 }
