@@ -9,7 +9,7 @@ export default function Resume() {
       <div>Resume for {resume.name}</div>
       <hr />
       <Container>
-        <table width="100%">
+        <table className="table-auto">
           <thead>
             <tr>
               <th>Field</th>
