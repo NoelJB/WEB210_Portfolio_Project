@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-server",
+  "version": "1.0.0",
+  "description": "node + express backend for portfolio website",
+  "license": "ISC",
+  "author": "Noel J Bergman",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
