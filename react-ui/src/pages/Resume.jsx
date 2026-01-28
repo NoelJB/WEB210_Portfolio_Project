@@ -1,11 +1,25 @@
+import { useState } from "react";
 import Container from "../components/ui/Container";
 import Section from "../components/ui/Section";
 import MyResume from "../data/MyResume";
+import { useEffect } from "react";
 
 export default function Resume() {
-  const resume = MyResume();
+  const [resume, setResume] = useState(undefined)
+  const [changed, setChanged] = useState(true)
 
-  return (
+	const fetchResume = async () => {
+    setResume(await MyResume());
+		setChanged(false)
+	}
+
+	useEffect(() => {
+		if (changed) fetchResume();
+	}, [changed])
+
+  if (resume === undefined) {
+    return <div>No Resume Found</div>
+  } else return (
     <>
       <div>Resume for {resume.name}</div>
       <hr />

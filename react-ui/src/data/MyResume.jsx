@@ -1,17 +1,19 @@
-export default function MyResume() {
-  return {
-    name: "Noel",
-    email: "noel@workforcecenter.slu.edu",
-    phone: "(555) 867-5309",
-    linkedin: "http://www.linkedin.com/tommy_tutone",
-    summary: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.`,
-    skills: ["JavaScript", "HTML", "CSS", "React", "Node", "vite", "full-stack"],
-    education: [
-      { start: 1973, end: 1976, school: "Ogontz", degree: null },
-      { start: 1976, end: 1979, school: "CHS", degree: "High School Diploma" },
-    ],
-  };
+export default async function MyResume() {
+  const url = "http://localhost:3000/api/resume";
+  const response = await fetch(url);
+
+  if (response.ok) {
+    const contentType = response.headers.get('Content-Type');
+
+    // console.log(`Response: ${response}`);
+    // console.log(`Content-Type: ${contentType}`);
+
+    if (contentType.startsWith("application/json")) {
+      const resume = await response.json();
+      // console.log(`Resume (JSON): ${resume}`);
+      // console.log(`Resume: ${JSON.stringify(resume)}`);
+      console.log(`LinkedIn for ${resume.name} is ${resume.linkedin}`);
+      return resume;
+    }
+  }
 }
