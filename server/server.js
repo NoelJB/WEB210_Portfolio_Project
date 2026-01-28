@@ -6,8 +6,8 @@ const app = express();
 const port = 3000;
 
 // Routing for our app page
-app.get("/", (req, res) => { res.send(`<p>${message}</p>`); });
-app.get("/api/resume", (req, res) => { res.send(MyResume()); });
+app.get("/", (req, res) => { res.send(`<HTML><HEAD><TITLE>Portfolio Home Page</TITLE></HEAD><BODY><p>${message}</p></BODY></HTML>`); });
+app.get("/api/resume", (req, res) => { res.json(MyResume()); });
 
 // Catch-All for URLs that we didn't recognize!
 app.use((req, res, next) => {
